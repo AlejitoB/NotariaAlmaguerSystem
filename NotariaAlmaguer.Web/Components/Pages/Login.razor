@@ -1,0 +1,51 @@
+@page "/login"
+@rendermode InteractiveServer
+@inject Session Session
+@inject NavigationManager Nav
+
+<h3>Iniciar Sesión</h3>
+
+<div class="card p-4 col-4">
+
+    <input class="form-control mb-2"
+           placeholder="Usuario"
+           @bind="usuario" />
+
+    <input type="password"
+           class="form-control mb-3"
+           placeholder="Contraseña"
+           @bind="password" />
+
+    <button class="btn btn-primary"
+            @onclick="IniciarSesion">
+        Ingresar
+    </button>
+
+    @if (!string.IsNullOrEmpty(error))
+    {
+        <div class="alert alert-danger mt-3">
+            @error
+        </div>
+    }
+
+</div>
+
+@code {
+
+    string usuario = "";
+    string password = "";
+    string error = "";
+
+    void IniciarSesion()
+    {
+        if (usuario == "notario" && password == "notario")
+        {
+            Session.Activa = true;
+            Nav.NavigateTo("/");
+        }
+        else
+        {
+            error = "Credenciales incorrectas";
+        }
+    }
+}

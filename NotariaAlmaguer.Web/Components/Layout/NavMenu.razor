@@ -1,0 +1,22 @@
+@using Microsoft.AspNetCore.Components.Routing
+
+<nav class="navbar navbar-dark bg-dark flex-column align-items-start p-3" style="min-height:100vh; min-width:200px;">
+    <a class="navbar-brand mb-4" href="/">⚖️ Notaría<br/>Almaguer</a>
+    <ul class="nav flex-column w-100">
+        <li class="nav-item">
+            <NavLink class="nav-link text-white" href="/" Match="NavLinkMatch.All">🏠 Inicio</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link text-white" href="/clientes">👤 Clientes</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link text-white" href="/notarios">⚖️ Notarios</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link text-white" href="/citas">📅 Citas</NavLink>
+        </li>
+        <li class="nav-item">
+            <NavLink class="nav-link text-white" href="/documentos">📄 Documentos</NavLink>
+        </li>
+    </ul>
+</nav>

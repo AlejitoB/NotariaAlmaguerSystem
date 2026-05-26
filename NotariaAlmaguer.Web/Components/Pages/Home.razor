@@ -1,0 +1,116 @@
+@page "/"
+@rendermode InteractiveServer
+@inject Session Session
+@inject NavigationManager Nav
+
+<PageTitle>Inicio - Notaría Almaguer</PageTitle>
+
+@if (!Session.Activa)
+{
+    <div class="container text-center mt-5">
+        <div class="card shadow p-5 mx-auto" style="max-width:500px">
+
+            <h1 class="mb-3">⚖️ Notaría de Almaguer</h1>
+
+            <p class="text-muted mb-4">
+                Debe iniciar sesión para acceder al sistema.
+            </p>
+
+            <button class="btn btn-primary btn-lg"
+                    @onclick="IrLogin">
+                Iniciar Sesión
+            </button>
+
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center py-5">
+        <h1>⚖️ Notaría de Almaguer</h1>
+        <p class="lead text-muted">Sistema de Gestión Documental</p>
+
+        <div class="mt-3">
+            <button class="btn btn-danger"
+                    @onclick="CerrarSesion">
+                Cerrar Sesión
+            </button>
+        </div>
+
+        <hr />
+
+        <div class="row mt-4 g-4 justify-content-center">
+
+            <div class="col-md-3">
+                <a href="/clientes" class="text-decoration-none">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div style="font-size:3rem">👤</div>
+                            <h5 class="card-title mt-2">Clientes</h5>
+                            <p class="card-text text-muted small">
+                                Gestión de ciudadanos
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/notarios" class="text-decoration-none">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div style="font-size:3rem">⚖️</div>
+                            <h5 class="card-title mt-2">Notarios</h5>
+                            <p class="card-text text-muted small">
+                                Personal notarial
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/citas" class="text-decoration-none">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div style="font-size:3rem">📅</div>
+                            <h5 class="card-title mt-2">Citas</h5>
+                            <p class="card-text text-muted small">
+                                Agenda de atención
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-3">
+                <a href="/documentos" class="text-decoration-none">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-body text-center">
+                            <div style="font-size:3rem">📄</div>
+                            <h5 class="card-title mt-2">Documentos</h5>
+                            <p class="card-text text-muted small">
+                                Documentos notariales
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+}
+
+@code {
+
+    void IrLogin()
+    {
+        Nav.NavigateTo("/login");
+    }
+
+    void CerrarSesion()
+    {
+        Session.Activa = false;
+        Nav.NavigateTo("/login");
+    }
+}
