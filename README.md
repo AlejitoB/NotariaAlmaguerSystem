@@ -1,111 +1,147 @@
-# 🏛️ Sistema de Gestión Notaría Almaguer
-
-**Autores:** Robert Alejandro Beru Patiño · Manuel Ricardo Bolaños Moya · Milton Andres Campo  
-**Director:** Cristian Mendez Rodriguez  
-**Institución:** Fundación Universitaria de Popayán
-
+NotaryAlmaguer System
+Notarial Management Web System
 ---
 
-## 📋 Descripción
+##  Description
 
-Sistema web para la digitalización y gestión de documentos notariales de la Notaría de Almaguer, Cauca. Permite administrar clientes, notarios, citas y documentos a través de una interfaz web conectada a una API REST.
+NotariaAlmaguer System is a web-based notary management platform developed to optimize administrative, documentary, and operational processes within a notary's office.
 
+The system is built on a modular architecture using ASP.NET Core and C#, allowing for scalability, organization, and future integrations.
+
+The project is currently in active development and construction.
 ---
 
-## 🏗️ Arquitectura
+## Architecture
 
 ```
-NotariaAlmaguer/
-├── NotariaAlmaguer.Api/          ← Backend: Minimal API + Dapper + SQLite
-│   ├── Program.cs
-│   ├── init.sql
-│   └── Modules/
-│       ├── Clientes/ClienteModule.cs
-│       ├── Notarios/NotarioModule.cs
-│       ├── Citas/CitaModule.cs
-│       └── Documentos/DocumentoModule.cs
-└── NotariaAlmaguer.Web/          ← Frontend: Blazor WebAssembly
-    ├── Program.cs
-    ├── Models/Models.cs
-    ├── Services/ApiServices.cs
-    └── Pages/
-        ├── Clientes.razor
-        ├── Notarios.razor
-        ├── Citas.razor
-        └── Documentos.razor
-```
+NotaryAlmaguer/
+├── NotariaAlmaguer.Api/ Backend: Minimal API + Dapper + SQLite
+│ ├── Program.cs
+│ ├── init.sql
+│ └── Modules/
+│ ├── Clients/ClientModule.cs
+│ ├── Notaries/NotarioModule.cs
+│ ├── Appointments/AppointmentModule.cs
+│ └── Documents/DocumentModule.cs
+└── NotariaAlmaguer.Web/ Frontend: Blazor WebAssembly 
+├── Program.cs
 
-**Stack tecnológico:**
-- Backend: C# .NET 9 · Minimal APIs · Dapper · SQLite · Arquitectura Limpia · Patrón Repositorio
+├── Models/Models.cs
+
+├── Services/ApiServices.cs
+
+└── Pages/
+
+├── Clients.razor
+
+├── Notaries.razor
+
+├── Appointments.razor
+
+└── Documents.razor
+---
+## System Objectives
+
+Digitize notarial processes
+Optimize document management
+Centralize information
+Improve service times
+Facilitate internal administration
+
+**Technology Stack:**
+- Backend: C# .NET 9 · Minimal APIs · Dapper · SQLite · Clean Architecture · Repository Pattern
 - Frontend: Blazor WebAssembly · Bootstrap 5
 
 ---
 
-## 🚀 Cómo ejecutar
+## How Run
 
-### Requisitos
-- .NET 9 SDK instalado → https://dotnet.microsoft.com/download
+### Requirements
+- .NET 9 SDK installed → https://dotnet.microsoft.com/download
 
-### 1. Ejecutar el Backend (API)
+### 1. Run the Backend (API)
 
 ```bash
 cd NotariaAlmaguer.Api
 dotnet run
 ```
-La API queda disponible en: `http://localhost:5000`
+The API is available at: `http://localhost:5000`
 
-### 2. Ejecutar el Frontend (Blazor)
+### 2. Run the Frontend (Blazor)
 
-En otra terminal:
+In another terminal:
 ```bash
 cd NotariaAlmaguer.Web
 dotnet run
 ```
-La app web queda en: `http://localhost:5001`
+The web app is located at: `http://localhost:5001`
 
 ---
 
-## 📡 Endpoints de la API
+## 📡 API Endpoints
 
-### Clientes
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET    | /api/clientes | Listar todos |
-| GET    | /api/clientes/{id} | Obtener por ID |
-| POST   | /api/clientes | Crear |
-| PUT    | /api/clientes/{id} | Actualizar |
-| DELETE | /api/clientes/{id} | Eliminar |
+### Clients
+| Method | Path | Description |
 
-### Notarios
-| Método | Ruta | Descripción |
 |--------|------|-------------|
-| GET    | /api/notarios | Listar todos |
-| GET    | /api/notarios/{id} | Obtener por ID |
-| POST   | /api/notarios | Crear |
-| PUT    | /api/notarios/{id} | Actualizar |
-| DELETE | /api/notarios/{id} | Eliminar |
 
-### Citas
-| Método | Ruta | Descripción |
-|--------|------|-------------|
-| GET    | /api/citas | Listar todas |
-| GET    | /api/citas/{id} | Obtener por ID |
-| POST   | /api/citas | Crear |
-| PUT    | /api/citas/{id} | Actualizar |
-| DELETE | /api/citas/{id} | Eliminar |
+| GET | /api/clientes | List all |
 
-### Documentos
-| Método | Ruta | Descripción |
+| GET | /api/clientes/{id} | Get by ID |
+
+| POST | /api/clientes | Create |
+
+| PUT | /api/clientes/{id} | Update |
+
+| DELETE | /api/clientes/{id} | Delete |
+
+### Notaries
+| Method | Path | Description |
+
 |--------|------|-------------|
-| GET    | /api/documentos | Listar todos |
-| GET    | /api/documentos/{id} | Obtener por ID |
-| POST   | /api/documentos | Crear |
-| PUT    | /api/documentos/{id} | Actualizar |
-| DELETE | /api/documentos/{id} | Eliminar |
+
+| GET | /api/notarios | List all |
+
+| GET | /api/notarios/{id} | Get by ID |
+
+| POST | /api/notarios | Create |
+
+| PUT | /api/notarios/{id} | Update |
+
+| DELETE | /api/notarios/{id} | Delete |
+
+### Appointments
+| Method | Path | Description |
+
+|--------|------|-------------|
+
+| GET | /api/citas | List all |
+
+| GET | /api/citas/{id} | Get by ID |
+
+| POST | /api/quotes | Create |
+
+| PUT | /api/quotes/{id} | Update |
+
+| DELETE | /api/quotes/{id} | Delete |
+
+### Documents
+| Method | Path | Description |
+
+|--------|------|-------------|
+
+| GET | /api/documents | List all |
+
+| GET | /api/documents/{id} | Get by ID |
+
+| POST | /api/documents | Create |
+
+| PUT | /api/documents/{id} | Update |
+
+| DELETE | /api/documents/{id} | Delete |
 
 ---
 
-## 💡 Notas
+## Note
 
-- La base de datos `notaria.db` se crea automáticamente al iniciar el backend.
-- Si el frontend está en un puerto distinto al `5001`, actualizar la `BaseAddress` en `NotariaAlmaguer.Web/Program.cs`.
+This project is currently under active development and may undergo frequent changes.
